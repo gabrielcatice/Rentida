@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RentidaCar2.Model
 {
-    class ClientAddress
+    public class ClientAddress
     {
         private string id;
         private AddressType clientAddressType;

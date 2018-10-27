@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RentidaCar2.Model
 {
-    class RentCar
+    public class RentCar
     {
         private string id;
         private Client renter;

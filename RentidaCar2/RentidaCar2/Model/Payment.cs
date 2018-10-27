@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RentidaCar2.Model
 {
-    class Payment
+    public class Payment
     {
         private string id;
         private string methodName;
