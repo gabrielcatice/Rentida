@@ -16,8 +16,9 @@ namespace RentidaCar2.Model
         private string document;
         private DateTime birthDate;
         private DateTime lastRentDate;
+        private ClientStatus status;
 
-        public Client(string id, string fullName, string phoneNumber, ClientAddress address, Gender clientGender, string document, DateTime birthDate, DateTime lastRentDate)
+        public Client(string id, string fullName, string phoneNumber, ClientAddress address, Gender clientGender, string document, DateTime birthDate, DateTime lastRentDate, ClientStatus status)
         {
             this.id = id;
             this.fullName = fullName;
@@ -27,6 +28,7 @@ namespace RentidaCar2.Model
             this.document = document;
             this.birthDate = birthDate;
             this.lastRentDate = lastRentDate;
+            this.status = status;
         }
 
         public string Id
@@ -131,6 +133,25 @@ namespace RentidaCar2.Model
             {
                 lastRentDate = value;
             }
+        }
+
+        internal ClientStatus Status
+        {
+            get
+            {
+                return status;
+            }
+
+            set
+            {
+                status = value;
+            }
+        }
+
+        public enum ClientStatus
+        {
+            Regular = 1,
+            Blocked = 2
         }
 
         public enum Gender

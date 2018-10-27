@@ -55,6 +55,7 @@
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\ClientAddress.cs" />
     <Compile Include="Model\Payment.cs" />
+    <Compile Include="Model\RentCar.cs" />
     <Compile Include="Model\RentPlan.cs" />
     <Compile Include="Model\Vehicle.cs" />
     <Compile Include="Program.cs" />
