@@ -76,6 +76,7 @@
             this.backHome.TabIndex = 20;
             this.backHome.Text = "Voltar";
             this.backHome.UseVisualStyleBackColor = true;
+            this.backHome.Click += new System.EventHandler(this.backHome_Click);
             // 
             // addClient
             // 

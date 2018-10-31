@@ -16,5 +16,12 @@ namespace RentidaCar2
         {
             InitializeComponent();
         }
+
+        private void backHome_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            this.Hide();
+        }
     }
 }
