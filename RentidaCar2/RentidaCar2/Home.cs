@@ -47,5 +47,12 @@ namespace RentidaCar2
         {
 
         }
+
+        private void consultarAluguéisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RentReportcs relatorio = new RentReportcs();
+            relatorio.Show();
+            this.Hide();
+        }
     }
 }

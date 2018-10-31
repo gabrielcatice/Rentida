@@ -81,6 +81,7 @@
             this.consultarAluguéisToolStripMenuItem.Name = "consultarAluguéisToolStripMenuItem";
             this.consultarAluguéisToolStripMenuItem.Size = new System.Drawing.Size(132, 21);
             this.consultarAluguéisToolStripMenuItem.Text = "Consultar Aluguéis ";
+            this.consultarAluguéisToolStripMenuItem.Click += new System.EventHandler(this.consultarAluguéisToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
