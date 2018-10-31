@@ -47,41 +47,46 @@
             this.sairToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(714, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(714, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // alugarUmCarroToolStripMenuItem
             // 
+            this.alugarUmCarroToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.alugarUmCarroToolStripMenuItem.Name = "alugarUmCarroToolStripMenuItem";
-            this.alugarUmCarroToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
+            this.alugarUmCarroToolStripMenuItem.Size = new System.Drawing.Size(115, 21);
             this.alugarUmCarroToolStripMenuItem.Text = "Alugar um carro";
             this.alugarUmCarroToolStripMenuItem.Click += new System.EventHandler(this.alugarUmCarroToolStripMenuItem_Click);
             // 
             // gestãoDeClientesToolStripMenuItem
             // 
+            this.gestãoDeClientesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gestãoDeClientesToolStripMenuItem.Name = "gestãoDeClientesToolStripMenuItem";
-            this.gestãoDeClientesToolStripMenuItem.Size = new System.Drawing.Size(116, 20);
+            this.gestãoDeClientesToolStripMenuItem.Size = new System.Drawing.Size(129, 21);
             this.gestãoDeClientesToolStripMenuItem.Text = "Gestão de Clientes";
             this.gestãoDeClientesToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeClientesToolStripMenuItem_Click);
             // 
             // gestãoDeVeículosToolStripMenuItem
             // 
+            this.gestãoDeVeículosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gestãoDeVeículosToolStripMenuItem.Name = "gestãoDeVeículosToolStripMenuItem";
-            this.gestãoDeVeículosToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
+            this.gestãoDeVeículosToolStripMenuItem.Size = new System.Drawing.Size(131, 21);
             this.gestãoDeVeículosToolStripMenuItem.Text = "Gestão de Veículos";
             this.gestãoDeVeículosToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeVeículosToolStripMenuItem_Click);
             // 
             // consultarAluguéisToolStripMenuItem
             // 
+            this.consultarAluguéisToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.consultarAluguéisToolStripMenuItem.Name = "consultarAluguéisToolStripMenuItem";
-            this.consultarAluguéisToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
+            this.consultarAluguéisToolStripMenuItem.Size = new System.Drawing.Size(132, 21);
             this.consultarAluguéisToolStripMenuItem.Text = "Consultar Aluguéis ";
             // 
             // sairToolStripMenuItem
             // 
+            this.sairToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(42, 21);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -94,6 +99,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Home";
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.Home_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

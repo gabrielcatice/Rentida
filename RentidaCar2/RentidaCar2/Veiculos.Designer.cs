@@ -28,82 +28,184 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.carSearch = new System.Windows.Forms.Label();
+            this.addCar = new System.Windows.Forms.Button();
+            this.carUpdate = new System.Windows.Forms.Button();
+            this.removeCar = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.carFilter = new System.Windows.Forms.TreeView();
+            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.releaseYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kmAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isRent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastRent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carDetail = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // carSearch
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Busca";
+            this.carSearch.AutoSize = true;
+            this.carSearch.Location = new System.Drawing.Point(2, 9);
+            this.carSearch.Name = "carSearch";
+            this.carSearch.Size = new System.Drawing.Size(80, 13);
+            this.carSearch.TabIndex = 0;
+            this.carSearch.Text = "Buscar Veículo";
+            this.carSearch.Click += new System.EventHandler(this.label1_Click);
             // 
-            // listView1
+            // addCar
             // 
-            this.listView1.Location = new System.Drawing.Point(42, 34);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(626, 227);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.addCar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addCar.Location = new System.Drawing.Point(34, 287);
+            this.addCar.Name = "addCar";
+            this.addCar.Size = new System.Drawing.Size(112, 23);
+            this.addCar.TabIndex = 2;
+            this.addCar.Text = "Adicionar Veículo";
+            this.addCar.UseVisualStyleBackColor = true;
+            this.addCar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button1
+            // carUpdate
             // 
-            this.button1.Location = new System.Drawing.Point(78, 287);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Adicionar Veículo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.carUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.carUpdate.Location = new System.Drawing.Point(298, 287);
+            this.carUpdate.Name = "carUpdate";
+            this.carUpdate.Size = new System.Drawing.Size(103, 23);
+            this.carUpdate.TabIndex = 3;
+            this.carUpdate.Text = "Atualizar Veículo";
+            this.carUpdate.UseVisualStyleBackColor = true;
+            this.carUpdate.Click += new System.EventHandler(this.carUpdate_Click);
             // 
-            // button2
+            // removeCar
             // 
-            this.button2.Location = new System.Drawing.Point(422, 287);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Adicionar Veículo";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(252, 287);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(126, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Adicionar Veículo";
-            this.button3.UseVisualStyleBackColor = true;
+            this.removeCar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.removeCar.Location = new System.Drawing.Point(172, 287);
+            this.removeCar.Name = "removeCar";
+            this.removeCar.Size = new System.Drawing.Size(102, 23);
+            this.removeCar.TabIndex = 4;
+            this.removeCar.Text = "Remover Veículo";
+            this.removeCar.UseVisualStyleBackColor = true;
+            this.removeCar.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(593, 287);
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Location = new System.Drawing.Point(567, 287);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(101, 23);
             this.button4.TabIndex = 5;
             this.button4.Text = "Voltar";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Brand,
+            this.modelName,
+            this.releaseYear,
+            this.kmAmount,
+            this.carType,
+            this.isRent,
+            this.lastRent,
+            this.idCar});
+            this.dataGridView1.Location = new System.Drawing.Point(34, 42);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(634, 227);
+            this.dataGridView1.TabIndex = 6;
+            // 
+            // carFilter
+            // 
+            this.carFilter.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.carFilter.Location = new System.Drawing.Point(98, 9);
+            this.carFilter.Name = "carFilter";
+            this.carFilter.Size = new System.Drawing.Size(570, 27);
+            this.carFilter.TabIndex = 7;
+            // 
+            // Brand
+            // 
+            this.Brand.HeaderText = "Marca";
+            this.Brand.Name = "Brand";
+            // 
+            // modelName
+            // 
+            this.modelName.HeaderText = "Modelo";
+            this.modelName.Name = "modelName";
+            // 
+            // releaseYear
+            // 
+            this.releaseYear.HeaderText = "Ano de Fabricação";
+            this.releaseYear.Name = "releaseYear";
+            // 
+            // kmAmount
+            // 
+            this.kmAmount.HeaderText = "Quilometragem";
+            this.kmAmount.Name = "kmAmount";
+            // 
+            // carType
+            // 
+            this.carType.HeaderText = "Tipo do carro";
+            this.carType.Name = "carType";
+            // 
+            // isRent
+            // 
+            this.isRent.HeaderText = "Alugado";
+            this.isRent.Name = "isRent";
+            // 
+            // lastRent
+            // 
+            this.lastRent.HeaderText = "Último Aluguel";
+            this.lastRent.Name = "lastRent";
+            // 
+            // idCar
+            // 
+            this.idCar.HeaderText = "Placa";
+            this.idCar.Name = "idCar";
+            // 
+            // carDetail
+            // 
+            this.carDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.carDetail.Location = new System.Drawing.Point(429, 287);
+            this.carDetail.Name = "carDetail";
+            this.carDetail.Size = new System.Drawing.Size(101, 23);
+            this.carDetail.TabIndex = 8;
+            this.carDetail.Text = "Detalhar";
+            this.carDetail.UseVisualStyleBackColor = true;
             // 
             // Veiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 322);
+            this.Controls.Add(this.carDetail);
+            this.Controls.Add(this.carFilter);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.removeCar);
+            this.Controls.Add(this.carUpdate);
+            this.Controls.Add(this.addCar);
+            this.Controls.Add(this.carSearch);
             this.Name = "Veiculos";
             this.Text = "Veiculos";
             this.Load += new System.EventHandler(this.Veiculos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,11 +213,21 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label carSearch;
+        private System.Windows.Forms.Button addCar;
+        private System.Windows.Forms.Button carUpdate;
+        private System.Windows.Forms.Button removeCar;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TreeView carFilter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modelName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn releaseYear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kmAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn carType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isRent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastRent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCar;
+        private System.Windows.Forms.Button carDetail;
     }
 }
