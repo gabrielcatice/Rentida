@@ -10,7 +10,7 @@ namespace RentidaCar2.Model
     {
         private string id;
         private AddressType clientAddressType;
-        private string adddressName;
+        private string addressName;
         private string addressNumber;
         private string neighbourhood;
         private string zipCode;
@@ -18,17 +18,21 @@ namespace RentidaCar2.Model
         private string state;
         private string country;
 
-        public ClientAddress(string id, AddressType clientAddressType, string adddressName, string addressNumber, string neighbourhood, string zipCode, string city, string state, string country)
+        public ClientAddress(string id, AddressType clientAddressType, string addressName, string addressNumber, string neighbourhood, string zipCode, string city, string state, string country)
         {
             this.id = id;
             this.clientAddressType = clientAddressType;
-            this.adddressName = adddressName;
+            this.addressName = addressName;
             this.addressNumber = addressNumber;
             this.neighbourhood = neighbourhood;
             this.zipCode = zipCode;
             this.city = city;
             this.state = state;
             this.country = country;
+        }
+
+        public ClientAddress()
+        {
         }
 
         public string Id
@@ -61,12 +65,12 @@ namespace RentidaCar2.Model
         {
             get
             {
-                return adddressName;
+                return addressName;
             }
 
             set
             {
-                adddressName = value;
+                addressName = value;
             }
         }
 

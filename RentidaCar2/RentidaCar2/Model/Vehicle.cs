@@ -29,6 +29,10 @@ namespace RentidaCar2.Model
             this.lastRentDate = lastRentDate;
         }
 
+        public Vehicle()
+        {
+        }
+
         public string Id
         {
             get

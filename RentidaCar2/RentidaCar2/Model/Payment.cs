@@ -11,6 +11,10 @@ namespace RentidaCar2.Model
         private string id;
         private string methodName;
 
+        public Payment()
+        {
+        }
+
         public Payment(string id, string methodName)
         {
             this.Id = id;

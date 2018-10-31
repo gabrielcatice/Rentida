@@ -11,7 +11,7 @@ namespace RentidaCar2.Model
         private string id;
         private string fullName;
         private string phoneNumber;
-        private ClientAddress address;
+        private ClientAddress address = new ClientAddress();
         private Gender clientGender;
         private string document;
         private DateTime birthDate;
@@ -29,6 +29,10 @@ namespace RentidaCar2.Model
             this.birthDate = birthDate;
             this.lastRentDate = lastRentDate;
             this.status = status;
+        }
+
+        public Client()
+        {
         }
 
         public string Id

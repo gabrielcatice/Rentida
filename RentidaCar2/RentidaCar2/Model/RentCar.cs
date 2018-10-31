@@ -9,12 +9,12 @@ namespace RentidaCar2.Model
     public class RentCar
     {
         private string id;
-        private Client renter;
-        private RentPlan rentPlan;
-        private Vehicle renterVehicle;
+        private Client renter = new Client();
+        private RentPlan rentPlan = new RentPlan();
+        private Vehicle renterVehicle = new Vehicle();
         private DateTime rentDate;
         private DateTime devolutionDate;
-        private Payment paymentMethod;
+        private Payment paymentMethod = new Payment();
         private double initialValue;
         private double totalValue;
         private RentStatus status;
