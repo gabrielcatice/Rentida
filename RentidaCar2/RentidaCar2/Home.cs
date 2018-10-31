@@ -24,7 +24,9 @@ namespace RentidaCar2
 
         private void alugarUmCarroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            RentCar alugar = new RentCar();
+            alugar.Show();
+            this.Hide();
         }
 
         private void gestãoDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,6 +41,11 @@ namespace RentidaCar2
             Veiculos Veiculo = new Veiculos();
             Veiculo.Show();
             this.Hide();
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

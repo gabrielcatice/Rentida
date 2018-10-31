@@ -38,8 +38,32 @@ namespace RentidaCar2
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Home home = new Home();
-            home.Show();
+                Home home = new Home();
+                home.Show();
+                this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CadastroVeiculo registerCar = new CadastroVeiculo();
+            registerCar.Show();
+            this.Hide();
+        }
+
+        private void carUpdate_Click(object sender, EventArgs e)
+        {
+            CadastroVeiculo registerCar = new CadastroVeiculo();
+            registerCar.Show();
             this.Hide();
         }
     }
