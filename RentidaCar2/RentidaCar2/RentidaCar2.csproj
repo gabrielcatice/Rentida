@@ -53,6 +53,7 @@
     <Compile Include="Cliente.Designer.cs">
       <DependentUpon>Cliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\VehicleDAO.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
