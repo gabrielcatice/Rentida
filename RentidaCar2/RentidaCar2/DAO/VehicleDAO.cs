@@ -61,7 +61,7 @@ namespace RentidaCar2.DAO
         public List<Vehicle> ListAll()
         {
             Database.Database rentida = Database.Database.GetInstance();
-            string query = "SELECT * FROM aluno";
+            string query = "SELECT * FROM vehicle";
             DataSet ds = rentida.ExecuteQuery(query);
             List<Vehicle> carList = new List<Vehicle>();
 

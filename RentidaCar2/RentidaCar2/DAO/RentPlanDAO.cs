@@ -41,12 +41,41 @@ namespace RentidaCar2.DAO
 
         public void Update(RentPlan plan)
         {
+            Database.Database rentida = Database.Database.GetInstance();
+            string query = string.Format("UPDATE rentida.plan SET plan_name='{0}', base_value='{1}', starter_km='{2}', additional_value='{3}', daily_value='{4}', car_type='{5}'" + "WHERE id ='{6}'",
+                plan.PlanName, plan.BaseValue, plan.StarterKm, plan.AdditionalValue, plan.DailyValue, plan.CarType, plan.Id);
 
+            rentida.ExecuteNonQuery(query);
         }
 
         public void Delete(string id)
         {
+            Database.Database rentida = Database.Database.GetInstance();
+            string query = string.Format("DELETE from rentida.plan WHERE id =" + id);
 
+            rentida.ExecuteNonQuery(query);
+        }
+
+        public List<RentPlan> ListAll()
+        {
+            Database.Database rentida = Database.Database.GetInstance();
+            string query = "SELECT * FROM plan";
+            DataSet ds = rentida.ExecuteQuery(query);
+            List<RentPlan> planList = new List<RentPlan>();
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                RentPlan plan = new RentPlan();
+                plan.Id = dr["id"].ToString();
+                plan.PlanName = dr["plan_name"].ToString();
+                plan.BaseValue = Convert.ToDouble(dr["base_value"].ToString());
+                plan.StarterKm = Convert.ToInt16(dr["starter_km"].ToString());
+                plan.AdditionalValue = Convert.ToDouble(dr["additional_value"].ToString());
+                plan.DailyValue = Convert.ToDouble(dr["daily_value"].ToString());
+                plan.CarType = Vehicle.Type.Complete;
+                planList.Add(plan);
+            }
+            return planList;
         }
     }
 }
