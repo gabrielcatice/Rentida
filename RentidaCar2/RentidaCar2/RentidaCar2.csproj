@@ -68,6 +68,13 @@
     <Compile Include="Cliente.Designer.cs">
       <DependentUpon>Cliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\ClientAddressDAO.cs" />
+    <Compile Include="DAO\ClientDAO.cs" />
+    <Compile Include="DAO\PaymentDAO.cs" />
+    <Compile Include="DAO\RentCarDAO.cs" />
+    <Compile Include="DAO\RentPlanDAO.cs" />
+    <Compile Include="DAO\VehicleDAO.cs" />
+    <Compile Include="Database\Database.cs" />
     <Compile Include="FormLayout.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -48,7 +48,7 @@ namespace RentidaCar2.Model
             }
         }
 
-        internal Client Renter
+        public Client Renter
         {
             get
             {
@@ -61,7 +61,7 @@ namespace RentidaCar2.Model
             }
         }
 
-        internal RentPlan RentPlan
+        public RentPlan RentPlan
         {
             get
             {
@@ -74,7 +74,7 @@ namespace RentidaCar2.Model
             }
         }
 
-        internal Vehicle RenterVehicle
+        public Vehicle RenterVehicle
         {
             get
             {
@@ -113,7 +113,7 @@ namespace RentidaCar2.Model
             }
         }
 
-        internal Payment PaymentMethod
+        public Payment PaymentMethod
         {
             get
             {
@@ -152,7 +152,7 @@ namespace RentidaCar2.Model
             }
         }
 
-        internal RentStatus Status
+        public RentStatus Status
         {
             get
             {
