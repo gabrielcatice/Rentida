@@ -14,7 +14,8 @@ namespace RentidaCar2.DAO
         public void Create(RentPlan plan)
         {
             Database.Database rentida = Database.Database.GetInstance();
-            string query = string.Format("", plan.Id);
+            string query = string.Format("INSERT INTO rentida.vehicle(model_name, brand, release_year, km_count, car_type, is_rented, last_rent_date) VALUES('{0}','{1}','{2}','{3}','{4}','{5}')", 
+                plan.Id);
 
             rentida.ExecuteNonQuery(query);
         }
