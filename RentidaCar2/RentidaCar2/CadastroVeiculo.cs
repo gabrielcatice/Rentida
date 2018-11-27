@@ -11,6 +11,7 @@ using System.Windows.Forms;
 namespace RentidaCar2
 {
     public partial class CadastroVeiculo : Form
+
     {
         public CadastroVeiculo()
         {
@@ -37,6 +38,16 @@ namespace RentidaCar2
             Veiculos carro = new Veiculos();
             carro.Show();
             this.Hide();
+        }
+
+        private void addCar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CadastroVeiculo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

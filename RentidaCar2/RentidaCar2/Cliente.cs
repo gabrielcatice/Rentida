@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace RentidaCar2
 {
-    public partial class Cliente : Form
+    public partial class Cliente : FormLayout
     {
         public Cliente()
         {
@@ -25,9 +25,9 @@ namespace RentidaCar2
             }
             else
             {
-                foreach (Home formAberto in Application.OpenForms)
+                foreach (Home1 formAberto in Application.OpenForms)
                 {
-                    if (formAberto is Home)
+                    if (formAberto is Home1)
                     {
                         formAberto.Show();
                         break;
@@ -48,9 +48,8 @@ namespace RentidaCar2
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Home home = new Home();
-            home.Show();
-            this.Hide();
+           
+            this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)

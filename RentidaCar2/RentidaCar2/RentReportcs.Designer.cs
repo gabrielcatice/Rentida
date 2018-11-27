@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RentReportcs));
             this.carFilter = new System.Windows.Forms.TreeView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCli = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastRentCli = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backHome = new System.Windows.Forms.Button();
             this.addClient = new System.Windows.Forms.Button();
             this.searchReport = new System.Windows.Forms.Label();
             this.Report = new System.Windows.Forms.Label();
-            this.clientStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastRentCli = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCli = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +65,26 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(719, 194);
             this.dataGridView1.TabIndex = 21;
+            // 
+            // fullName
+            // 
+            this.fullName.HeaderText = "Cliente";
+            this.fullName.Name = "fullName";
+            // 
+            // idCli
+            // 
+            this.idCli.HeaderText = "CPF";
+            this.idCli.Name = "idCli";
+            // 
+            // lastRentCli
+            // 
+            this.lastRentCli.HeaderText = "Data_Inicio_Aluguel";
+            this.lastRentCli.Name = "lastRentCli";
+            // 
+            // clientStatus
+            // 
+            this.clientStatus.HeaderText = "Data_Fim_Aluguel";
+            this.clientStatus.Name = "clientStatus";
             // 
             // backHome
             // 
@@ -109,26 +130,6 @@
             this.Report.TabIndex = 23;
             this.Report.Text = "Relatório";
             // 
-            // clientStatus
-            // 
-            this.clientStatus.HeaderText = "Data_Fim_Aluguel";
-            this.clientStatus.Name = "clientStatus";
-            // 
-            // lastRentCli
-            // 
-            this.lastRentCli.HeaderText = "Data_Inicio_Aluguel";
-            this.lastRentCli.Name = "lastRentCli";
-            // 
-            // idCli
-            // 
-            this.idCli.HeaderText = "CPF";
-            this.idCli.Name = "idCli";
-            // 
-            // fullName
-            // 
-            this.fullName.HeaderText = "Cliente";
-            this.fullName.Name = "fullName";
-            // 
             // RentReportcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,8 +141,9 @@
             this.Controls.Add(this.backHome);
             this.Controls.Add(this.addClient);
             this.Controls.Add(this.searchReport);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RentReportcs";
-            this.Text = "RentReportcs";
+            this.Text = "RENTIDA";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
