@@ -33,22 +33,29 @@ namespace RentidaCar2.DAO
             car.ModelName = dr["model_name"].ToString();
             car.CarBrand = Vehicle.Brand.Chevrolet;
             car.ReleaseYear = Convert.ToDateTime(dr["release_year"].ToString());
-            car.KmAmount = Convert.ToInt16(dr["model_name"].ToString());
+            car.KmAmount = Convert.ToInt16(dr["km_count"].ToString());
             car.CarType = Vehicle.Type.Premmium;
-            car.IsRented = Convert.ToBoolean(dr["model_name"].ToString());
-            car.LastRentDate = Convert.ToDateTime(dr["model_name"].ToString());
+            car.IsRented = Convert.ToBoolean(dr["is_rented"].ToString());
+            car.LastRentDate = Convert.ToDateTime(dr["_last_rent_date"].ToString());
 
             return car;
         }
 
         public void Update(Vehicle car)
         {
+            Database.Database rentida = Database.Database.GetInstance();
+            string query = string.Format("UPDATE rentida.vehicle SET model_name='{0}', brand='{1}', release_year='{2}', km_count='{3}', car_type='{4}', is_rented='{5}', last_rent_date='{6}'" + "WHERE id ='{7}'",
+                car.ModelName, car.CarBrand, car.ReleaseYear, car.KmAmount, car.CarType, car.IsRented, car.LastRentDate, car.Id);
 
+            rentida.ExecuteNonQuery(query);
         }
 
         public void Delete(string id)
         {
+            Database.Database rentida = Database.Database.GetInstance();
+            string query = string.Format("DELETE from rentida.vehicle WHERE id =" + id);
 
+            rentida.ExecuteNonQuery(query);
         }
 
         public List<Vehicle> ListAll()
@@ -65,10 +72,10 @@ namespace RentidaCar2.DAO
                 car.ModelName = dr["model_name"].ToString();
                 car.CarBrand = Vehicle.Brand.Chevrolet;
                 car.ReleaseYear = Convert.ToDateTime(dr["release_year"].ToString());
-                car.KmAmount = Convert.ToInt16(dr["model_name"].ToString());
+                car.KmAmount = Convert.ToInt16(dr["km_count"].ToString());
                 car.CarType = Vehicle.Type.Premmium;
-                car.IsRented = Convert.ToBoolean(dr["model_name"].ToString());
-                car.LastRentDate = Convert.ToDateTime(dr["model_name"].ToString());
+                car.IsRented = Convert.ToBoolean(dr["is_rented"].ToString());
+                car.LastRentDate = Convert.ToDateTime(dr["_last_rent_date"].ToString());
                 carList.Add(car);
             }
             return carList;
