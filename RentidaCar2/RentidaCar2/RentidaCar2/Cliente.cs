@@ -1,0 +1,68 @@
+﻿using System;
+using System.Windows.Forms;
+
+namespace RentidaCar2
+{
+    public partial class Cliente : FormLayout
+    {
+        public Cliente()
+        {
+            InitializeComponent();
+        }
+
+        private void Cliente_Load(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.Count == 0)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                foreach (Home1 formAberto in Application.OpenForms)
+                {
+                    if (formAberto is Home1)
+                    {
+                        formAberto.Show();
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void carSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+           
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void carFilter_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+    }
+}
