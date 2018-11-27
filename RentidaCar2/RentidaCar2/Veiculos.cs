@@ -66,5 +66,20 @@ namespace RentidaCar2
             registerCar.Show();
             this.Hide();
         }
+
+        private void carFilter_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void carDetail_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
