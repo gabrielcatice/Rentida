@@ -14,8 +14,8 @@ namespace RentidaCar2.DAO
         public void Create(RentPlan plan)
         {
             Database.Database rentida = Database.Database.GetInstance();
-            string query = string.Format("INSERT INTO rentida.vehicle(model_name, brand, release_year, km_count, car_type, is_rented, last_rent_date) VALUES('{0}','{1}','{2}','{3}','{4}','{5}')", 
-                plan.Id);
+            string query = string.Format("INSERT INTO rentida.plan(plan_name, base_value, starter_km, additional_value, daily_value, car_type) VALUES('{0}','{1}','{2}','{3}','{4}')", 
+                plan.PlanName, plan.BaseValue, plan.StarterKm, plan.AdditionalValue, plan.DailyValue, plan.CarType);
 
             rentida.ExecuteNonQuery(query);
         }
@@ -23,12 +23,18 @@ namespace RentidaCar2.DAO
         public RentPlan Read(string id)
         {
             Database.Database rentida = Database.Database.GetInstance();
-            string query = "SELECT * FROM aluno WHERE cpf=" + id;
+            string query = "SELECT * FROM rentida.plan WHERE id=" + id;
             DataSet ds = rentida.ExecuteQuery(query);
             RentPlan plan = new RentPlan();
 
             DataRow dr = ds.Tables[0].Rows[0];
             plan.Id = dr["id"].ToString();
+            plan.PlanName = dr["plan_name"].ToString();
+            plan.BaseValue = Convert.ToDouble(dr["base_value"].ToString());
+            plan.StarterKm = Convert.ToInt16(dr["starter_km"].ToString());
+            plan.AdditionalValue = Convert.ToDouble(dr["additional_value"].ToString());
+            plan.DailyValue = Convert.ToDouble(dr["daily_value"].ToString());
+            plan.CarType = Vehicle.Type.Complete;
 
             return plan;
         }
