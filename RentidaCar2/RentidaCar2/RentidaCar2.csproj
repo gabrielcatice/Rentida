@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>cartransport_coch_7076.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,17 +49,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastroCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroCliente.Designer.cs">
+      <DependentUpon>CadastroCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroVeiculo1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroVeiculo1.Designer.cs">
+      <DependentUpon>CadastroVeiculo1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cliente.Designer.cs">
       <DependentUpon>Cliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLayout.Designer.cs">
+      <DependentUpon>FormLayout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home1.Designer.cs">
+      <DependentUpon>Home1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home2.Designer.cs">
+      <DependentUpon>Home2.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\ClientAddress.cs" />
@@ -90,11 +123,32 @@
     <Compile Include="Veiculos.Designer.cs">
       <DependentUpon>Veiculos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Veiculos1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Veiculos1.Designer.cs">
+      <DependentUpon>Veiculos1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CadastroCliente.resx">
+      <DependentUpon>CadastroCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroVeiculo1.resx">
+      <DependentUpon>CadastroVeiculo1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cliente.resx">
       <DependentUpon>Cliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLayout.resx">
+      <DependentUpon>FormLayout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home1.resx">
+      <DependentUpon>Home1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home2.resx">
+      <DependentUpon>Home2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -117,6 +171,9 @@
     <EmbeddedResource Include="Veiculos.resx">
       <DependentUpon>Veiculos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Veiculos1.resx">
+      <DependentUpon>Veiculos1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -130,7 +187,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="cartransport_coch_7076.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
