@@ -35,6 +35,10 @@ namespace RentidaCar2.Model
             this.isPaid = isPaid;
         }
 
+        public RentCar()
+        {
+        }
+
         public string Id
         {
             get
