@@ -14,6 +14,13 @@ namespace RentidaCar2.DAO
         public void Create(Client client)
         {
             Database.Database rentida = Database.Database.GetInstance();
+            Client check = new Client();
+            check = this.Read(client.Id);
+            if (check != null)
+            {
+                System.InvalidOperationException error = new InvalidOperationException();
+                throw error;
+            }
             string query = string.Format("INSERT INTO rentida.client(fullname, phone_number, client_gender, document_number, birthdate, last_rent_date, status, address_id) VALUES('{0}','{1}','{2}','{3}','{4}','{5}', '{6}')",
                 client.FullName, client.PhoneNumber, client.ClientGender, client.Document,
                 client.BirthDate, client.LastRentDate, client.Status, client.Address.Id);
@@ -32,11 +39,34 @@ namespace RentidaCar2.DAO
             client.Id = dr["id"].ToString();
             client.FullName = dr["full_name"].ToString();
             client.PhoneNumber = dr["phone_number"].ToString();
-            client.ClientGender = Client.Gender.Male;
-            client.Document = dr["document"].ToString();
+
+            switch (Convert.ToInt16(dr["client_gender"].ToString()))
+            {
+                case 1:
+                    client.ClientGender = Client.Gender.Male;
+                    break;
+                case 2:
+                    client.ClientGender = Client.Gender.Female;
+                    break;
+                default:
+                    break;
+            }
+
+            client.Document = dr["document_number"].ToString();
             client.BirthDate = Convert.ToDateTime(dr["birthdate"]);
             client.LastRentDate = Convert.ToDateTime(dr["last_rent_date"]);
-            client.Status = Client.ClientStatus.Regular;
+
+            switch (Convert.ToInt16(dr["status"].ToString()))
+            {
+                case 1:
+                    client.Status = Client.ClientStatus.Regular;
+                    break;
+                case 2:
+                    client.Status = Client.ClientStatus.Blocked;
+                    break;
+                default:
+                    break;
+            }
 
             ClientAddressDAO addressDAO = new ClientAddressDAO();
             client.Address = addressDAO.Read(dr["address_id"].ToString());
@@ -47,6 +77,15 @@ namespace RentidaCar2.DAO
         public void Update(Client client)
         {
             Database.Database rentida = Database.Database.GetInstance();
+
+            Client check = new Client();
+            check = this.Read(client.Id);
+            if (check != null)
+            {
+                System.InvalidOperationException error = new InvalidOperationException();
+                throw error;
+            }
+
             string query = string.Format("INSERT INTO rentida.client(fullname, phone_number, client_gender, document_number, birthdate, last_rent_date, status, address_id) VALUES('{0}','{1}','{2}','{3}','{4}','{5}', '{6})",
                 client.FullName, client.PhoneNumber, client.ClientGender, client.Document,
                 client.BirthDate, client.LastRentDate, client.Status, client.Address.Id);
@@ -59,7 +98,15 @@ namespace RentidaCar2.DAO
             Database.Database rentida = Database.Database.GetInstance();
             string query = string.Format("DELETE from rentida.client WHERE id =" + id);
 
-            rentida.ExecuteNonQuery(query);
+            try
+            {
+                rentida.ExecuteNonQuery(query);
+            }
+            catch (System.ArgumentException)
+            {
+                System.ArgumentException error = new ArgumentException();
+                throw error;
+            }
         }
 
         public List<Client> ListAll()
@@ -75,22 +122,39 @@ namespace RentidaCar2.DAO
                 client.Id = dr["id"].ToString();
                 client.FullName = dr["full_name"].ToString();
                 client.PhoneNumber = dr["phone_number"].ToString();
-                client.ClientGender = Client.Gender.Male;
-                client.Document = dr["document"].ToString();
+
+                switch (Convert.ToInt16(dr["client_gender"].ToString()))
+                {
+                    case 1:
+                        client.ClientGender = Client.Gender.Male;
+                        break;
+                    case 2:
+                        client.ClientGender = Client.Gender.Female;
+                        break;
+                    default:
+                        break;
+                }
+
+                client.Document = dr["document_number"].ToString();
                 client.BirthDate = Convert.ToDateTime(dr["birthdate"]);
                 client.LastRentDate = Convert.ToDateTime(dr["last_rent_date"]);
-                client.Status = Client.ClientStatus.Regular;
+
+                switch (Convert.ToInt16(dr["status"].ToString()))
+                {
+                    case 1:
+                        client.Status = Client.ClientStatus.Regular;
+                        break;
+                    case 2:
+                        client.Status = Client.ClientStatus.Blocked;
+                        break;
+                    default:
+                        break;
+                }
 
                 ClientAddressDAO addressDAO = new ClientAddressDAO();
                 client.Address = addressDAO.Read(dr["address_id"].ToString());
                 clientList.Add(client);
             }
-            return clientList;
-        }
-
-        public List<Client> FindByName(string modelName)
-        {
-            List<Client> clientList = new List<Client>();
             return clientList;
         }
     }
