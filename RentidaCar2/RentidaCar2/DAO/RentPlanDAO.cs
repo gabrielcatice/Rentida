@@ -37,10 +37,10 @@ namespace RentidaCar2.DAO
             DataRow dr = ds.Tables[0].Rows[0];
             plan.Id = dr["id"].ToString();
             plan.PlanName = dr["plan_name"].ToString();
-            plan.BaseValue = Convert.ToDouble(dr["base_value"].ToString());
-            plan.StarterKm = Convert.ToInt16(dr["starter_km"].ToString());
-            plan.AdditionalValue = Convert.ToDouble(dr["additional_value"].ToString());
-            plan.DailyValue = Convert.ToDouble(dr["daily_value"].ToString());
+            plan.BaseValue = Convert.ToDouble(dr["base_value"]);
+            plan.StarterKm = Convert.ToInt16(dr["starter_km"]);
+            plan.AdditionalValue = Convert.ToDouble(dr["additional_value"]);
+            plan.DailyValue = Convert.ToDouble(dr["daily_value"]);
             switch (Convert.ToInt16(dr["car_type"]))
             {
                 case 1:
@@ -84,9 +84,9 @@ namespace RentidaCar2.DAO
 
                 rentida.ExecuteNonQuery(query);
             }
-            catch (System.ArgumentException)
+            catch (ArgumentException)
             {
-                System.ArgumentException error = new ArgumentException();
+                ArgumentException error = new ArgumentException();
                 throw error;
             }
         }
@@ -103,10 +103,10 @@ namespace RentidaCar2.DAO
                 RentPlan plan = new RentPlan();
                 plan.Id = dr["id"].ToString();
                 plan.PlanName = dr["plan_name"].ToString();
-                plan.BaseValue = Convert.ToDouble(dr["base_value"].ToString());
-                plan.StarterKm = Convert.ToInt16(dr["starter_km"].ToString());
-                plan.AdditionalValue = Convert.ToDouble(dr["additional_value"].ToString());
-                plan.DailyValue = Convert.ToDouble(dr["daily_value"].ToString());
+                plan.BaseValue = Convert.ToDouble(dr["base_value"]);
+                plan.StarterKm = Convert.ToInt16(dr["starter_km"]);
+                plan.AdditionalValue = Convert.ToDouble(dr["additional_value"]);
+                plan.DailyValue = Convert.ToDouble(dr["daily_value"]);
                 switch (Convert.ToInt16(dr["car_type"]))
                 {
                     case 1:
@@ -121,7 +121,7 @@ namespace RentidaCar2.DAO
                     default:
                         break;
                 }
-                
+
                 planList.Add(plan);
             }
             return planList;

@@ -66,9 +66,9 @@ namespace RentidaCar2.DAO
 
                 rentida.ExecuteNonQuery(query);
             }
-            catch (System.ArgumentException)
+            catch (ArgumentException)
             {
-                System.ArgumentException error = new ArgumentException();
+                ArgumentException error = new ArgumentException();
                 throw error;
             }
         }

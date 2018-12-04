@@ -36,7 +36,7 @@ namespace RentidaCar2.DAO
 
             DataRow dr = ds.Tables[0].Rows[0];
             address.Id = dr["id"].ToString();
-            switch (Convert.ToInt16(dr["address_type"].ToString()))
+            switch (Convert.ToInt16(dr["address_type"]))
             {
                 case 1:
                     address.ClientAddressType = ClientAddress.AddressType.Street;
@@ -88,9 +88,9 @@ namespace RentidaCar2.DAO
 
                 rentida.ExecuteNonQuery(query);
             }
-            catch (System.ArgumentException)
+            catch (ArgumentException)
             {
-                System.ArgumentException error = new ArgumentException();
+                ArgumentException error = new ArgumentException();
                 throw error;
             }
             

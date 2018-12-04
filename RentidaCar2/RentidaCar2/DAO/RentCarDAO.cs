@@ -11,7 +11,7 @@ namespace RentidaCar2.DAO
 {
     class RentCarDAO
     {
-        public void Create(RentidaCar2.Model.RentCar renting)
+        public void Create(Model.RentCar renting)
         {
             Model.RentCar check = new Model.RentCar();
             check = Read(renting.Id);
@@ -53,10 +53,10 @@ namespace RentidaCar2.DAO
             PaymentDAO payment = new PaymentDAO();
             rent.PaymentMethod = payment.Read(dr["payment_method"].ToString());
 
-            rent.RentDate = Convert.ToDateTime(dr["rent_date"].ToString());
-            rent.DevolutionDate = Convert.ToDateTime(dr["devolution_date"].ToString());
-            rent.InitialValue = Convert.ToDouble(dr["initial_value"].ToString());
-            rent.TotalValue = Convert.ToDouble(dr["total_value"].ToString());
+            rent.RentDate = Convert.ToDateTime(dr["rent_date"]);
+            rent.DevolutionDate = Convert.ToDateTime(dr["devolution_date"]);
+            rent.InitialValue = Convert.ToDouble(dr["initial_value"]);
+            rent.TotalValue = Convert.ToDouble(dr["total_value"]);
             switch (Convert.ToInt16(dr["status"]))
             {
                 case 1:
@@ -71,12 +71,12 @@ namespace RentidaCar2.DAO
                 default:
                     break;
             }
-            rent.IsPaid = Convert.ToBoolean(dr["is_paid"].ToString());
+            rent.IsPaid = Convert.ToBoolean(dr["is_paid"]);
 
             return rent;
         }
 
-        public void Update(RentidaCar2.Model.RentCar renting)
+        public void Update(Model.RentCar renting)
         {
             Model.RentCar check = new Model.RentCar();
             check = Read(renting.Id);
@@ -104,16 +104,16 @@ namespace RentidaCar2.DAO
 
                 rentida.ExecuteNonQuery(query);
             }
-            catch (System.ArgumentException)
+            catch (ArgumentException)
             {
-                System.ArgumentException error = new System.ArgumentException();
+                ArgumentException error = new ArgumentException();
                 throw error;
             }
         }
 
-        public List<RentidaCar2.Model.RentCar> ListAll()
+        public List<Model.RentCar> ListAll()
         {
-            List<RentidaCar2.Model.RentCar> rentingList = new List<Model.RentCar>();
+            List<Model.RentCar> rentingList = new List<Model.RentCar>();
             Database.Database rentida = Database.Database.GetInstance();
             string query = "SELECT * FROM rentida.rent_car";
             DataSet ds = rentida.ExecuteQuery(query);
@@ -135,10 +135,10 @@ namespace RentidaCar2.DAO
                 PaymentDAO payment = new PaymentDAO();
                 rent.PaymentMethod = payment.Read(dr["payment_method"].ToString());
 
-                rent.RentDate = Convert.ToDateTime(dr["rent_date"].ToString());
-                rent.DevolutionDate = Convert.ToDateTime(dr["devolution_date"].ToString());
-                rent.InitialValue = Convert.ToDouble(dr["initial_value"].ToString());
-                rent.TotalValue = Convert.ToDouble(dr["total_value"].ToString());
+                rent.RentDate = Convert.ToDateTime(dr["rent_date"]);
+                rent.DevolutionDate = Convert.ToDateTime(dr["devolution_date"]);
+                rent.InitialValue = Convert.ToDouble(dr["initial_value"]);
+                rent.TotalValue = Convert.ToDouble(dr["total_value"]);
                 switch (Convert.ToInt16(dr["status"]))
                 {
                     case 1:
@@ -153,7 +153,7 @@ namespace RentidaCar2.DAO
                     default:
                         break;
                 }
-                rent.IsPaid = Convert.ToBoolean(dr["is_paid"].ToString());
+                rent.IsPaid = Convert.ToBoolean(dr["is_paid"]);
                 rentingList.Add(rent);
             }
 

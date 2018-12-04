@@ -40,7 +40,7 @@ namespace RentidaCar2.DAO
             client.FullName = dr["full_name"].ToString();
             client.PhoneNumber = dr["phone_number"].ToString();
 
-            switch (Convert.ToInt16(dr["client_gender"].ToString()))
+            switch (Convert.ToInt16(dr["client_gender"]))
             {
                 case 1:
                     client.ClientGender = Client.Gender.Male;
@@ -56,7 +56,7 @@ namespace RentidaCar2.DAO
             client.BirthDate = Convert.ToDateTime(dr["birthdate"]);
             client.LastRentDate = Convert.ToDateTime(dr["last_rent_date"]);
 
-            switch (Convert.ToInt16(dr["status"].ToString()))
+            switch (Convert.ToInt16(dr["status"]))
             {
                 case 1:
                     client.Status = Client.ClientStatus.Regular;
@@ -102,9 +102,9 @@ namespace RentidaCar2.DAO
             {
                 rentida.ExecuteNonQuery(query);
             }
-            catch (System.ArgumentException)
+            catch (ArgumentException)
             {
-                System.ArgumentException error = new ArgumentException();
+                ArgumentException error = new ArgumentException();
                 throw error;
             }
         }
@@ -123,7 +123,7 @@ namespace RentidaCar2.DAO
                 client.FullName = dr["full_name"].ToString();
                 client.PhoneNumber = dr["phone_number"].ToString();
 
-                switch (Convert.ToInt16(dr["client_gender"].ToString()))
+                switch (Convert.ToInt16(dr["client_gender"]))
                 {
                     case 1:
                         client.ClientGender = Client.Gender.Male;
@@ -139,7 +139,7 @@ namespace RentidaCar2.DAO
                 client.BirthDate = Convert.ToDateTime(dr["birthdate"]);
                 client.LastRentDate = Convert.ToDateTime(dr["last_rent_date"]);
 
-                switch (Convert.ToInt16(dr["status"].ToString()))
+                switch (Convert.ToInt16(dr["status"]))
                 {
                     case 1:
                         client.Status = Client.ClientStatus.Regular;
