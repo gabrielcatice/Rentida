@@ -13,6 +13,14 @@ namespace RentidaCar2.DAO
     {
         public void Create(RentidaCar2.Model.RentCar renting)
         {
+            Model.RentCar check = new Model.RentCar();
+            check = this.Read(renting.Id);
+            if (check != null)
+            {
+                System.InvalidOperationException error = new InvalidOperationException();
+                throw error;
+            }
+
             Database.Database rentida = Database.Database.GetInstance();
             string query = string.Format("INSERT INTO rentida.rent_car(client_id, vehicle_id, plan_id, payment_method, rent_date, devolution_date, initial_value, total_value, status, is_paid) VALUES('{0}','{1}','{2}','{3}','{4}','{5}', '{6}', '{7}', '{8}', '{9}')",
                 renting.Renter.Id, renting.RenterVehicle.Id, renting.RentPlan.Id, renting.PaymentMethod.Id,
@@ -45,6 +53,14 @@ namespace RentidaCar2.DAO
 
         public void Update(RentidaCar2.Model.RentCar renting)
         {
+            Model.RentCar check = new Model.RentCar();
+            check = this.Read(renting.Id);
+            if (check == null)
+            {
+                System.InvalidOperationException error = new InvalidOperationException();
+                throw error;
+            }
+
             Database.Database rentida = Database.Database.GetInstance();
             string query = string.Format("UPDATE rentida.rent_car SET vehicle_id = '{0}', plan_id = '{1}', payment_method = '{2}', rent_date = '{3}', devolution_date = '{4}', initial_value = '{5}', total_value = '{6}', status = '{7}', is_paid = '{8}'" + "WHERE id ='{9}'",
                 renting.Renter.Id, renting.RenterVehicle.Id, renting.RentPlan.Id, renting.PaymentMethod.Id,
@@ -56,10 +72,18 @@ namespace RentidaCar2.DAO
 
         public void Delete(int id)
         {
-            Database.Database rentida = Database.Database.GetInstance();
-            string query = string.Format("DELETE from rentida.rent_car WHERE id =" + id);
+            try
+            {
+                Database.Database rentida = Database.Database.GetInstance();
+                string query = string.Format("DELETE from rentida.rent_car WHERE id =" + id);
 
-            rentida.ExecuteNonQuery(query);
+                rentida.ExecuteNonQuery(query);
+            }
+            catch (System.ArgumentException)
+            {
+                System.ArgumentException error = new System.ArgumentException();
+                throw error;
+            }
         }
 
         public List<RentidaCar2.Model.RentCar> ListAll()

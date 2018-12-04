@@ -80,7 +80,7 @@ namespace RentidaCar2.DAO
 
             Client check = new Client();
             check = this.Read(client.Id);
-            if (check != null)
+            if (check == null)
             {
                 System.InvalidOperationException error = new InvalidOperationException();
                 throw error;

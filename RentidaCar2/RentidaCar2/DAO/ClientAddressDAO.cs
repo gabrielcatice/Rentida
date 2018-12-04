@@ -67,7 +67,7 @@ namespace RentidaCar2.DAO
         {
             ClientAddress check = new ClientAddress();
             check = this.Read(address.Id);
-            if (check != null)
+            if (check == null)
             {
                 System.InvalidOperationException error = new InvalidOperationException();
                 throw error;

@@ -45,7 +45,7 @@ namespace RentidaCar2.DAO
         {
             Payment check = new Payment();
             check = this.Read(payment.Id);
-            if (check != null)
+            if (check == null)
             {
                 System.InvalidOperationException error = new InvalidOperationException();
                 throw error;
