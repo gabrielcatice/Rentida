@@ -13,6 +13,13 @@ namespace RentidaCar2.DAO
     {
         public void Create(RentPlan plan)
         {
+            RentPlan check = new RentPlan();
+            check = Read(plan.Id);
+            if (check != null)
+            {
+                InvalidOperationException error = new InvalidOperationException();
+                throw error;
+            }
             Database.Database rentida = Database.Database.GetInstance();
             string query = string.Format("INSERT INTO rentida.plan(plan_name, base_value, starter_km, additional_value, daily_value, car_type) VALUES('{0}','{1}','{2}','{3}','{4}')", 
                 plan.PlanName, plan.BaseValue, plan.StarterKm, plan.AdditionalValue, plan.DailyValue, plan.CarType);
@@ -23,7 +30,7 @@ namespace RentidaCar2.DAO
         public RentPlan Read(string id)
         {
             Database.Database rentida = Database.Database.GetInstance();
-            string query = "SELECT * FROM rentida.plan WHERE id=" + id;
+            string query = "SELECT * FROM rentida.plan WHERE id=" + Convert.ToInt16(id);
             DataSet ds = rentida.ExecuteQuery(query);
             RentPlan plan = new RentPlan();
 
@@ -34,32 +41,60 @@ namespace RentidaCar2.DAO
             plan.StarterKm = Convert.ToInt16(dr["starter_km"].ToString());
             plan.AdditionalValue = Convert.ToDouble(dr["additional_value"].ToString());
             plan.DailyValue = Convert.ToDouble(dr["daily_value"].ToString());
-            plan.CarType = Vehicle.Type.Complete;
+            switch (Convert.ToInt16(dr["car_type"]))
+            {
+                case 1:
+                    plan.CarType = Vehicle.Type.Simple;
+                    break;
+                case 2:
+                    plan.CarType = Vehicle.Type.Complete;
+                    break;
+                case 3:
+                    plan.CarType = Vehicle.Type.Premmium;
+                    break;
+                default:
+                    break;
+            }
 
             return plan;
         }
 
         public void Update(RentPlan plan)
         {
+            RentPlan check = new RentPlan();
+            check = Read(plan.Id);
+            if (check == null)
+            {
+                InvalidOperationException error = new InvalidOperationException();
+                throw error;
+            }
             Database.Database rentida = Database.Database.GetInstance();
             string query = string.Format("UPDATE rentida.plan SET plan_name='{0}', base_value='{1}', starter_km='{2}', additional_value='{3}', daily_value='{4}', car_type='{5}'" + "WHERE id ='{6}'",
-                plan.PlanName, plan.BaseValue, plan.StarterKm, plan.AdditionalValue, plan.DailyValue, plan.CarType, plan.Id);
+                plan.PlanName, plan.BaseValue, plan.StarterKm, plan.AdditionalValue, plan.DailyValue, plan.CarType, Convert.ToInt16(plan.Id));
 
             rentida.ExecuteNonQuery(query);
         }
 
         public void Delete(string id)
         {
-            Database.Database rentida = Database.Database.GetInstance();
-            string query = string.Format("DELETE from rentida.plan WHERE id =" + id);
+            try
+            {
+                Database.Database rentida = Database.Database.GetInstance();
+                string query = string.Format("DELETE from rentida.plan WHERE id =" + Convert.ToInt16(id));
 
-            rentida.ExecuteNonQuery(query);
+                rentida.ExecuteNonQuery(query);
+            }
+            catch (System.ArgumentException)
+            {
+                System.ArgumentException error = new ArgumentException();
+                throw error;
+            }
         }
 
         public List<RentPlan> ListAll()
         {
             Database.Database rentida = Database.Database.GetInstance();
-            string query = "SELECT * FROM plan";
+            string query = "SELECT * FROM rentida.plan";
             DataSet ds = rentida.ExecuteQuery(query);
             List<RentPlan> planList = new List<RentPlan>();
 
@@ -72,7 +107,21 @@ namespace RentidaCar2.DAO
                 plan.StarterKm = Convert.ToInt16(dr["starter_km"].ToString());
                 plan.AdditionalValue = Convert.ToDouble(dr["additional_value"].ToString());
                 plan.DailyValue = Convert.ToDouble(dr["daily_value"].ToString());
-                plan.CarType = Vehicle.Type.Complete;
+                switch (Convert.ToInt16(dr["car_type"]))
+                {
+                    case 1:
+                        plan.CarType = Vehicle.Type.Simple;
+                        break;
+                    case 2:
+                        plan.CarType = Vehicle.Type.Complete;
+                        break;
+                    case 3:
+                        plan.CarType = Vehicle.Type.Premmium;
+                        break;
+                    default:
+                        break;
+                }
+                
                 planList.Add(plan);
             }
             return planList;

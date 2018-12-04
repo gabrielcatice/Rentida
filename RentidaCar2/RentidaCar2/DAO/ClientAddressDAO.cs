@@ -14,10 +14,10 @@ namespace RentidaCar2.DAO
         public void Create(ClientAddress address)
         {
             ClientAddress check = new ClientAddress();
-            check = this.Read(address.Id);
+            check = Read(address.Id);
             if (check != null)
             {
-                System.InvalidOperationException error = new InvalidOperationException();
+                InvalidOperationException error = new InvalidOperationException();
                 throw error;
             }
             Database.Database rentida = Database.Database.GetInstance();
@@ -66,10 +66,10 @@ namespace RentidaCar2.DAO
         public void Update(ClientAddress address)
         {
             ClientAddress check = new ClientAddress();
-            check = this.Read(address.Id);
+            check = Read(address.Id);
             if (check == null)
             {
-                System.InvalidOperationException error = new InvalidOperationException();
+                InvalidOperationException error = new InvalidOperationException();
                 throw error;
             }
             Database.Database rentida = Database.Database.GetInstance();

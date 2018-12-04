@@ -14,10 +14,10 @@ namespace RentidaCar2.DAO
         public void Create(Payment payment)
         {
             Payment check = new Payment();
-            check = this.Read(payment.Id);
+            check = Read(payment.Id);
             if (check != null)
             {
-                System.InvalidOperationException error = new InvalidOperationException();
+                InvalidOperationException error = new InvalidOperationException();
                 throw error;
             }
             Database.Database rentida = Database.Database.GetInstance();
@@ -44,10 +44,10 @@ namespace RentidaCar2.DAO
         public void Update(Payment payment)
         {
             Payment check = new Payment();
-            check = this.Read(payment.Id);
+            check = Read(payment.Id);
             if (check == null)
             {
-                System.InvalidOperationException error = new InvalidOperationException();
+                InvalidOperationException error = new InvalidOperationException();
                 throw error;
             }
             Database.Database rentida = Database.Database.GetInstance();

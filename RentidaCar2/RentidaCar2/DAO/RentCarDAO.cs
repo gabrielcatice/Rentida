@@ -14,10 +14,10 @@ namespace RentidaCar2.DAO
         public void Create(RentidaCar2.Model.RentCar renting)
         {
             Model.RentCar check = new Model.RentCar();
-            check = this.Read(renting.Id);
+            check = Read(renting.Id);
             if (check != null)
             {
-                System.InvalidOperationException error = new InvalidOperationException();
+                InvalidOperationException error = new InvalidOperationException();
                 throw error;
             }
 
@@ -79,10 +79,10 @@ namespace RentidaCar2.DAO
         public void Update(RentidaCar2.Model.RentCar renting)
         {
             Model.RentCar check = new Model.RentCar();
-            check = this.Read(renting.Id);
+            check = Read(renting.Id);
             if (check == null)
             {
-                System.InvalidOperationException error = new InvalidOperationException();
+                InvalidOperationException error = new InvalidOperationException();
                 throw error;
             }
 

@@ -31,7 +31,7 @@ namespace RentidaCar2
         {
             CadastroVeiculo1 registerCar = new CadastroVeiculo1();
             registerCar.Show();
-            this.Close();
+            Close();
         }
     }
 }

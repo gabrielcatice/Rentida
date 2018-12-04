@@ -15,10 +15,10 @@ namespace RentidaCar2.DAO
         {
             Database.Database rentida = Database.Database.GetInstance();
             Client check = new Client();
-            check = this.Read(client.Id);
+            check = Read(client.Id);
             if (check != null)
             {
-                System.InvalidOperationException error = new InvalidOperationException();
+                InvalidOperationException error = new InvalidOperationException();
                 throw error;
             }
             string query = string.Format("INSERT INTO rentida.client(fullname, phone_number, client_gender, document_number, birthdate, last_rent_date, status, address_id) VALUES('{0}','{1}','{2}','{3}','{4}','{5}', '{6}')",
@@ -79,10 +79,10 @@ namespace RentidaCar2.DAO
             Database.Database rentida = Database.Database.GetInstance();
 
             Client check = new Client();
-            check = this.Read(client.Id);
+            check = Read(client.Id);
             if (check == null)
             {
-                System.InvalidOperationException error = new InvalidOperationException();
+                InvalidOperationException error = new InvalidOperationException();
                 throw error;
             }
 

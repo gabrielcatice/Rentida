@@ -21,7 +21,7 @@ namespace RentidaCar2
         {
             Home home = new Home();
             home.Show();
-            this.Hide();
+            Hide();
         }
     }
 }

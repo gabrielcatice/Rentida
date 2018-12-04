@@ -36,7 +36,7 @@ namespace RentidaCar2
 
         private void Sair_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }
