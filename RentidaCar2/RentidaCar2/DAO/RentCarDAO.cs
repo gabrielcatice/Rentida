@@ -35,20 +35,45 @@ namespace RentidaCar2.DAO
             Database.Database rentida = Database.Database.GetInstance();
             string query = "SELECT * FROM rentida.rent_car WHERE id=" + id;
             DataSet ds = rentida.ExecuteQuery(query);
-            Model.RentCar renting = new Model.RentCar();
+            Model.RentCar rent = new Model.RentCar();
 
             DataRow dr = ds.Tables[0].Rows[0];
 
+            rent.Id = dr["id"].ToString();
+
             ClientDAO client = new ClientDAO();
+            rent.Renter = client.Read(dr["client_id"].ToString());
+
             VehicleDAO car = new VehicleDAO();
+            rent.RenterVehicle = car.Read(dr["vehicle_id"].ToString());
+
             RentPlanDAO plan = new RentPlanDAO();
+            rent.RentPlan = plan.Read(dr["plan_id"].ToString());
 
+            PaymentDAO payment = new PaymentDAO();
+            rent.PaymentMethod = payment.Read(dr["payment_method"].ToString());
 
-            renting.Renter = client.Read(dr["client_id"].ToString());
+            rent.RentDate = Convert.ToDateTime(dr["rent_date"].ToString());
+            rent.DevolutionDate = Convert.ToDateTime(dr["devolution_date"].ToString());
+            rent.InitialValue = Convert.ToDouble(dr["initial_value"].ToString());
+            rent.TotalValue = Convert.ToDouble(dr["total_value"].ToString());
+            switch (Convert.ToInt16(dr["status"]))
+            {
+                case 1:
+                    rent.Status = Model.RentCar.RentStatus.Open;
+                    break;
+                case 2:
+                    rent.Status = Model.RentCar.RentStatus.Running;
+                    break;
+                case 3:
+                    rent.Status = Model.RentCar.RentStatus.Finished;
+                    break;
+                default:
+                    break;
+            }
+            rent.IsPaid = Convert.ToBoolean(dr["is_paid"].ToString());
 
-
-
-            return renting;
+            return rent;
         }
 
         public void Update(RentidaCar2.Model.RentCar renting)
@@ -114,7 +139,20 @@ namespace RentidaCar2.DAO
                 rent.DevolutionDate = Convert.ToDateTime(dr["devolution_date"].ToString());
                 rent.InitialValue = Convert.ToDouble(dr["initial_value"].ToString());
                 rent.TotalValue = Convert.ToDouble(dr["total_value"].ToString());
-                rent.Status = Model.RentCar.RentStatus.Finished;
+                switch (Convert.ToInt16(dr["status"]))
+                {
+                    case 1:
+                        rent.Status = Model.RentCar.RentStatus.Open;
+                        break;
+                    case 2:
+                        rent.Status = Model.RentCar.RentStatus.Running;
+                        break;
+                    case 3:
+                        rent.Status = Model.RentCar.RentStatus.Finished;
+                        break;
+                    default:
+                        break;
+                }
                 rent.IsPaid = Convert.ToBoolean(dr["is_paid"].ToString());
                 rentingList.Add(rent);
             }
