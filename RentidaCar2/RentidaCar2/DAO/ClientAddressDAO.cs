@@ -11,11 +11,11 @@ namespace RentidaCar2.DAO
 {
     class ClientAddressDAO
     {
-        public void Create(ClientAddress client)
+        public void Create(ClientAddress address)
         {
             Database.Database rentida = Database.Database.GetInstance();
             string query = string.Format("INSERT INTO rentida.client_address(address_type, address_name, address_number, neighbourhood, zip_code, city, state, country) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
-                 client.ClientAddressType, client.AdddressName, client.AddressNumber, client.Neighbourhood, client.ZipCode, client.City, client.State, client.Country);
+                 address.ClientAddressType, address.AdddressName, address.AddressNumber, address.Neighbourhood, address.ZipCode, address.City, address.State, address.Country);
 
             rentida.ExecuteNonQuery(query);
         }
@@ -23,13 +23,28 @@ namespace RentidaCar2.DAO
         public ClientAddress Read(string id)
         {
             Database.Database rentida = Database.Database.GetInstance();
-            string query = "SELECT * FROM rentida.client_address WHERE id=" + id;
+            string query = "SELECT * FROM rentida.client_address WHERE id=" + Convert.ToInt16(id);
             DataSet ds = rentida.ExecuteQuery(query);
             ClientAddress address = new ClientAddress();
 
             DataRow dr = ds.Tables[0].Rows[0];
             address.Id = dr["id"].ToString();
-            address.ClientAddressType = ClientAddress.AddressType.Road;
+            switch (Convert.ToInt16(dr["address_type"].ToString()))
+            {
+                case 1:
+                    address.ClientAddressType = ClientAddress.AddressType.Street;
+                    break;
+                case 2:
+                    address.ClientAddressType = ClientAddress.AddressType.Avenue;
+                    break;
+                case 3:
+                    address.ClientAddressType = ClientAddress.AddressType.Road;
+                    break;
+
+                default:
+                    break;
+            }
+            
             address.AdddressName = dr["address_name"].ToString();
             address.AddressNumber = dr["address_number"].ToString();
             address.Neighbourhood = dr["neighbourhood"].ToString();
