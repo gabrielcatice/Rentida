@@ -13,6 +13,13 @@ namespace RentidaCar2.DAO
     {
         public void Create(Payment payment)
         {
+            Payment check = new Payment();
+            check = this.Read(payment.Id);
+            if (check != null)
+            {
+                System.InvalidOperationException error = new InvalidOperationException();
+                throw error;
+            }
             Database.Database rentida = Database.Database.GetInstance();
             string query = string.Format("INSERT INTO rentida.payment_method(method_name) VALUES('{0}')",
                  payment.MethodName);
@@ -23,7 +30,7 @@ namespace RentidaCar2.DAO
         public Payment Read(string id)
         {
             Database.Database rentida = Database.Database.GetInstance();
-            string query = "SELECT * FROM  rentida.payment_method WHERE id=" + id;
+            string query = "SELECT * FROM  rentida.payment_method WHERE id=" + Convert.ToInt16(id);
             DataSet ds = rentida.ExecuteQuery(query);
             Payment payment = new Payment();
 
@@ -36,19 +43,34 @@ namespace RentidaCar2.DAO
 
         public void Update(Payment payment)
         {
+            Payment check = new Payment();
+            check = this.Read(payment.Id);
+            if (check != null)
+            {
+                System.InvalidOperationException error = new InvalidOperationException();
+                throw error;
+            }
             Database.Database rentida = Database.Database.GetInstance();
             string query = string.Format("UPDATE rentida.payment_method SET method_name='{0}'"+"WHERE id='{1}'",
-                 payment.MethodName, payment.Id);
+                 payment.MethodName, Convert.ToInt16(payment.Id));
 
             rentida.ExecuteNonQuery(query);
         }
 
         public void Delete(string id)
         {
-            Database.Database rentida = Database.Database.GetInstance();
-            string query = string.Format("DELETE from rentida.payment_method WHERE id =" + id);
+            try
+            {
+                Database.Database rentida = Database.Database.GetInstance();
+                string query = string.Format("DELETE from rentida.payment_method WHERE id =" + Convert.ToInt16(id));
 
-            rentida.ExecuteNonQuery(query);
+                rentida.ExecuteNonQuery(query);
+            }
+            catch (System.ArgumentException)
+            {
+                System.ArgumentException error = new ArgumentException();
+                throw error;
+            }
         }
     }
 }

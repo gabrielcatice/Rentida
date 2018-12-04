@@ -74,7 +74,7 @@ namespace RentidaCar2.DAO
             }
             Database.Database rentida = Database.Database.GetInstance();
             string query = string.Format("UPDATE rentida.client_address SET address_type='{0}', address_name='{1}', address_number='{2}', neighbourhood='{3}', zip_code='{4}', city='{5}', state='{6}', country='{7}'" + "WHERE id ='{7}'",
-                 address.ClientAddressType, address.AdddressName, address.AddressNumber, address.Neighbourhood, address.ZipCode, address.City, address.State, address.Country, address.Id);
+                 address.ClientAddressType, address.AdddressName, address.AddressNumber, address.Neighbourhood, address.ZipCode, address.City, address.State, address.Country, Convert.ToInt16(address.Id));
 
             rentida.ExecuteNonQuery(query);
         }
@@ -84,7 +84,7 @@ namespace RentidaCar2.DAO
             try
             {
                 Database.Database rentida = Database.Database.GetInstance();
-                string query = string.Format("DELETE from rentida.client_address WHERE id =" + id);
+                string query = string.Format("DELETE from rentida.client_address WHERE id =" + Convert.ToInt16(id));
 
                 rentida.ExecuteNonQuery(query);
             }
