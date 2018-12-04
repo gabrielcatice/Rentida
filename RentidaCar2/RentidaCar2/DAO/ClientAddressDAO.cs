@@ -13,6 +13,13 @@ namespace RentidaCar2.DAO
     {
         public void Create(ClientAddress address)
         {
+            ClientAddress check = new ClientAddress();
+            check = this.Read(address.Id);
+            if (check != null)
+            {
+                System.InvalidOperationException error = new InvalidOperationException();
+                throw error;
+            }
             Database.Database rentida = Database.Database.GetInstance();
             string query = string.Format("INSERT INTO rentida.client_address(address_type, address_name, address_number, neighbourhood, zip_code, city, state, country) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
                  address.ClientAddressType, address.AdddressName, address.AddressNumber, address.Neighbourhood, address.ZipCode, address.City, address.State, address.Country);
@@ -58,6 +65,13 @@ namespace RentidaCar2.DAO
 
         public void Update(ClientAddress address)
         {
+            ClientAddress check = new ClientAddress();
+            check = this.Read(address.Id);
+            if (check != null)
+            {
+                System.InvalidOperationException error = new InvalidOperationException();
+                throw error;
+            }
             Database.Database rentida = Database.Database.GetInstance();
             string query = string.Format("UPDATE rentida.client_address SET address_type='{0}', address_name='{1}', address_number='{2}', neighbourhood='{3}', zip_code='{4}', city='{5}', state='{6}', country='{7}'" + "WHERE id ='{7}'",
                  address.ClientAddressType, address.AdddressName, address.AddressNumber, address.Neighbourhood, address.ZipCode, address.City, address.State, address.Country, address.Id);
@@ -67,10 +81,19 @@ namespace RentidaCar2.DAO
 
         public void Delete(string id)
         {
-            Database.Database rentida = Database.Database.GetInstance();
-            string query = string.Format("DELETE from rentida.client_address WHERE id =" + id);
+            try
+            {
+                Database.Database rentida = Database.Database.GetInstance();
+                string query = string.Format("DELETE from rentida.client_address WHERE id =" + id);
 
-            rentida.ExecuteNonQuery(query);
+                rentida.ExecuteNonQuery(query);
+            }
+            catch (System.ArgumentException)
+            {
+                System.ArgumentException error = new ArgumentException();
+                throw error;
+            }
+            
         }
     }
 }
