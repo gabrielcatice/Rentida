@@ -14,14 +14,7 @@ namespace RentidaCar2.DAO
         public void Create(Client client)
         {
             Database.Database rentida = Database.Database.GetInstance();
-            Client check = new Client();
-            check = Read(client.Id);
-            if (check != null)
-            {
-                InvalidOperationException error = new InvalidOperationException();
-                throw error;
-            }
-            string query = string.Format("INSERT INTO rentida.client(fullname, phone_number, client_gender, document_number, birthdate, last_rent_date, status, address_id) VALUES('{0}','{1}','{2}','{3}','{4}','{5}', '{6}')",
+            string query = string.Format("INSERT INTO rentida.client(fullname, phone_number, client_gender, document_number, birthdate, last_rent_date, status, address_id) VALUES('{0}','{1}','{2}','{3}','{4}','{5}', '{6}', '{7}')",
                 client.FullName, client.PhoneNumber, client.ClientGender, client.Document,
                 client.BirthDate, client.LastRentDate, client.Status, client.Address.Id);
 

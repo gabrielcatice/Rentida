@@ -13,13 +13,6 @@ namespace RentidaCar2.DAO
     {
         public void Create(Payment payment)
         {
-            Payment check = new Payment();
-            check = Read(payment.Id);
-            if (check != null)
-            {
-                InvalidOperationException error = new InvalidOperationException();
-                throw error;
-            }
             Database.Database rentida = Database.Database.GetInstance();
             string query = string.Format("INSERT INTO rentida.payment_method(method_name) VALUES('{0}')",
                  payment.MethodName);
@@ -30,7 +23,7 @@ namespace RentidaCar2.DAO
         public Payment Read(string id)
         {
             Database.Database rentida = Database.Database.GetInstance();
-            string query = "SELECT * FROM  rentida.payment_method WHERE id=" + Convert.ToInt16(id);
+            string query = "SELECT * FROM  rentida.payment_method WHERE id=" + id;
             DataSet ds = rentida.ExecuteQuery(query);
             Payment payment = new Payment();
 
@@ -62,7 +55,7 @@ namespace RentidaCar2.DAO
             try
             {
                 Database.Database rentida = Database.Database.GetInstance();
-                string query = string.Format("DELETE from rentida.payment_method WHERE id =" + Convert.ToInt16(id));
+                string query = string.Format("DELETE from rentida.payment_method WHERE id =" + id);
 
                 rentida.ExecuteNonQuery(query);
             }

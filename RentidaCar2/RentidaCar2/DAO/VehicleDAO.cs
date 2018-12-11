@@ -13,17 +13,9 @@ namespace RentidaCar2.DAO
     {
         public void Create(Vehicle car)
         {
-            Vehicle check = new Vehicle();
-            check = Read(car.Id);
-            if (check != null)
-            {
-                InvalidOperationException error = new InvalidOperationException();
-                throw error;
-            }
-
             Database.Database rentida = Database.Database.GetInstance();
-            string query = string.Format("INSERT INTO rentida.vehicle(model_name, brand, release_year, km_count, car_type, is_rented, last_rent_date) VALUES('{0}','{1}','{2}','{3}','{4}','{5}')",
-                car.ModelName, car.CarBrand, car.ReleaseYear, car.KmAmount, car.CarType, car.IsRented, car.LastRentDate);
+            string query = string.Format("INSERT INTO rentida.vehicle(model_name, brand, release_year, km_count, car_type, is_rented, last_rent_date) VALUES('{0}','{1}','{2}','{3}','{4}','{5}', '{6}')",
+                car.ModelName, (int) car.CarBrand, car.ReleaseYear, car.KmAmount, (int) car.CarType, car.IsRented, car.LastRentDate);
 
             rentida.ExecuteNonQuery(query);
         }
@@ -115,7 +107,7 @@ namespace RentidaCar2.DAO
         public List<Vehicle> ListAll()
         {
             Database.Database rentida = Database.Database.GetInstance();
-            string query = "SELECT * FROM vehicle";
+            string query = "SELECT * FROM rentida.vehicle";
             DataSet ds = rentida.ExecuteQuery(query);
             List<Vehicle> carList = new List<Vehicle>();
 

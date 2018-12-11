@@ -182,7 +182,7 @@ namespace RentidaCar2.Model
             }
         }
 
-        public enum RentStatus
+        public enum RentStatus: int
         {
             Open = 1,
             Running = 2,

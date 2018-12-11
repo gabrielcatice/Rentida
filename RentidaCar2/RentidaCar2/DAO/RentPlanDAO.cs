@@ -13,16 +13,9 @@ namespace RentidaCar2.DAO
     {
         public void Create(RentPlan plan)
         {
-            RentPlan check = new RentPlan();
-            check = Read(plan.Id);
-            if (check != null)
-            {
-                InvalidOperationException error = new InvalidOperationException();
-                throw error;
-            }
             Database.Database rentida = Database.Database.GetInstance();
-            string query = string.Format("INSERT INTO rentida.plan(plan_name, base_value, starter_km, additional_value, daily_value, car_type) VALUES('{0}','{1}','{2}','{3}','{4}')", 
-                plan.PlanName, plan.BaseValue, plan.StarterKm, plan.AdditionalValue, plan.DailyValue, plan.CarType);
+            string query = string.Format("INSERT INTO rentida.plan(plan_name, base_value, starter_km, additional_value, daily_value, car_type) VALUES('{0}','{1}','{2}','{3}','{4}', '{5}')", 
+                plan.PlanName, plan.BaseValue, plan.StarterKm, plan.AdditionalValue, plan.DailyValue, (int) plan.CarType);
 
             rentida.ExecuteNonQuery(query);
         }
@@ -30,7 +23,7 @@ namespace RentidaCar2.DAO
         public RentPlan Read(string id)
         {
             Database.Database rentida = Database.Database.GetInstance();
-            string query = "SELECT * FROM rentida.plan WHERE id=" + Convert.ToInt16(id);
+            string query = "SELECT * FROM rentida.plan WHERE id=" + id;
             DataSet ds = rentida.ExecuteQuery(query);
             RentPlan plan = new RentPlan();
 
@@ -70,7 +63,7 @@ namespace RentidaCar2.DAO
             }
             Database.Database rentida = Database.Database.GetInstance();
             string query = string.Format("UPDATE rentida.plan SET plan_name='{0}', base_value='{1}', starter_km='{2}', additional_value='{3}', daily_value='{4}', car_type='{5}'" + "WHERE id ='{6}'",
-                plan.PlanName, plan.BaseValue, plan.StarterKm, plan.AdditionalValue, plan.DailyValue, plan.CarType, Convert.ToInt16(plan.Id));
+                plan.PlanName, plan.BaseValue, plan.StarterKm, plan.AdditionalValue, plan.DailyValue, plan.CarType, plan.Id);
 
             rentida.ExecuteNonQuery(query);
         }
@@ -80,7 +73,7 @@ namespace RentidaCar2.DAO
             try
             {
                 Database.Database rentida = Database.Database.GetInstance();
-                string query = string.Format("DELETE from rentida.plan WHERE id =" + Convert.ToInt16(id));
+                string query = string.Format("DELETE from rentida.plan WHERE id =" + id);
 
                 rentida.ExecuteNonQuery(query);
             }

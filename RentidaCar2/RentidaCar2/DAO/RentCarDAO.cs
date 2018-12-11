@@ -25,7 +25,7 @@ namespace RentidaCar2.DAO
             string query = string.Format("INSERT INTO rentida.rent_car(client_id, vehicle_id, plan_id, payment_method, rent_date, devolution_date, initial_value, total_value, status, is_paid) VALUES('{0}','{1}','{2}','{3}','{4}','{5}', '{6}', '{7}', '{8}', '{9}')",
                 renting.Renter.Id, renting.RenterVehicle.Id, renting.RentPlan.Id, renting.PaymentMethod.Id,
                 renting.RentDate, renting.DevolutionDate, renting.InitialValue, renting.TotalValue,
-                renting.Status, renting.IsPaid);
+                (int) renting.Status, renting.IsPaid);
 
             rentida.ExecuteNonQuery(query);
         }

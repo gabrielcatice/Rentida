@@ -152,13 +152,13 @@ namespace RentidaCar2.Model
             }
         }
 
-        public enum ClientStatus
+        public enum ClientStatus: int
         {
             Regular = 1,
             Blocked = 2
         }
 
-        public enum Gender
+        public enum Gender: int
         {
             Male = 1,
             Female = 2
