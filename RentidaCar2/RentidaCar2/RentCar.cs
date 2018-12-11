@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RentidaCar2
 {
-    public partial class RentCar : Form
+    public partial class RentCar : FormLayout
     {
         public RentCar()
         {
@@ -19,7 +12,7 @@ namespace RentidaCar2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -60,6 +53,10 @@ namespace RentidaCar2
         private void button3_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
         }
     }
 }

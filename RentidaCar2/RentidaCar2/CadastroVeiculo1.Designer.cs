@@ -41,17 +41,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.carRegister = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.leftPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Size = new System.Drawing.Size(192, 559);
+            this.leftPanel.Size = new System.Drawing.Size(192, 559);
             // 
             // panel2
             // 
-            this.panel2.Size = new System.Drawing.Size(790, 10);
+            this.Panelx.Size = new System.Drawing.Size(790, 10);
             // 
             // addCar
             // 
@@ -200,11 +200,11 @@
             this.Name = "CadastroVeiculo1";
             this.Text = "CadastroVeiculo1";
             this.Load += new System.EventHandler(this.CadastroVeiculo1_Load);
-            this.Controls.SetChildIndex(this.panel1, 0);
-            this.Controls.SetChildIndex(this.panel2, 0);
+            this.Controls.SetChildIndex(this.leftPanel, 0);
+            this.Controls.SetChildIndex(this.Panelx, 0);
             this.Controls.SetChildIndex(this.carRegister, 0);
             this.Controls.SetChildIndex(this.panel3, 0);
-            this.panel1.ResumeLayout(false);
+            this.leftPanel.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);

@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace RentidaCar2
 {
@@ -31,7 +23,7 @@ namespace RentidaCar2
         {
             CadastroVeiculo1 registerCar = new CadastroVeiculo1();
             registerCar.Show();
-            Close();
+            this.Close();
         }
     }
 }

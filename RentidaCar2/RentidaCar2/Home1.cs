@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RentidaCar2
@@ -30,9 +23,9 @@ namespace RentidaCar2
         private void alugarUmCarro_Click(object sender, EventArgs e)
         {
             RentCar alugar = new RentCar();
-            Hide();
+            this.Hide();
             alugar.ShowDialog();
-            Show();
+            this.Show();
             
         }
 
@@ -57,8 +50,7 @@ namespace RentidaCar2
         private void Alugados_Click(object sender, EventArgs e)
         {
             RentReportcs relatorio = new RentReportcs();
-            relatorio.Show();
-            Hide();
+            relatorio.Show();           
         }
 
         private void Home1_Load(object sender, EventArgs e)

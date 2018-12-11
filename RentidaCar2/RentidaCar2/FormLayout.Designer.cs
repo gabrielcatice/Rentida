@@ -29,45 +29,34 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLayout));
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.buttonPanel = new System.Windows.Forms.Panel();
+            this.logoPanel = new System.Windows.Forms.Panel();
             this.Sair = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.rightPanel = new System.Windows.Forms.Panel();
+            this.Panelx = new System.Windows.Forms.Panel();
+            this.leftPanel = new System.Windows.Forms.Panel();
+            this.leftPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel5
+            // buttonPanel
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(114)))), ((int)(((byte)(155)))));
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.panel5.Location = new System.Drawing.Point(192, 539);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(784, 10);
-            this.panel5.TabIndex = 7;
+            this.buttonPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(114)))), ((int)(((byte)(155)))));
+            this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonPanel.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.buttonPanel.Location = new System.Drawing.Point(192, 539);
+            this.buttonPanel.Name = "buttonPanel";
+            this.buttonPanel.Size = new System.Drawing.Size(784, 10);
+            this.buttonPanel.TabIndex = 7;
             // 
-            // panel1
+            // logoPanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(114)))), ((int)(((byte)(155)))));
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.Sair);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(192, 549);
-            this.panel1.TabIndex = 10;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel6.Location = new System.Drawing.Point(28, 10);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(132, 87);
-            this.panel6.TabIndex = 12;
+            this.logoPanel.BackColor = System.Drawing.Color.White;
+            this.logoPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logoPanel.BackgroundImage")));
+            this.logoPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.logoPanel.Location = new System.Drawing.Point(28, 10);
+            this.logoPanel.Name = "logoPanel";
+            this.logoPanel.Size = new System.Drawing.Size(132, 87);
+            this.logoPanel.TabIndex = 12;
             // 
             // Sair
             // 
@@ -83,25 +72,36 @@
             this.Sair.UseVisualStyleBackColor = false;
             this.Sair.Click += new System.EventHandler(this.Sair_Click);
             // 
-            // panel4
+            // rightPanel
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(114)))), ((int)(((byte)(155)))));
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.panel4.Location = new System.Drawing.Point(966, 10);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(10, 529);
-            this.panel4.TabIndex = 11;
+            this.rightPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(114)))), ((int)(((byte)(155)))));
+            this.rightPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.rightPanel.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.rightPanel.Location = new System.Drawing.Point(966, 10);
+            this.rightPanel.Name = "rightPanel";
+            this.rightPanel.Size = new System.Drawing.Size(10, 529);
+            this.rightPanel.TabIndex = 11;
             // 
-            // panel2
+            // Panelx
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(114)))), ((int)(((byte)(155)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.panel2.Location = new System.Drawing.Point(192, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(784, 10);
-            this.panel2.TabIndex = 9;
+            this.Panelx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(114)))), ((int)(((byte)(155)))));
+            this.Panelx.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panelx.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.Panelx.Location = new System.Drawing.Point(192, 0);
+            this.Panelx.Name = "Panelx";
+            this.Panelx.Size = new System.Drawing.Size(784, 10);
+            this.Panelx.TabIndex = 9;
+            // 
+            // leftPanel
+            // 
+            this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(114)))), ((int)(((byte)(155)))));
+            this.leftPanel.Controls.Add(this.logoPanel);
+            this.leftPanel.Controls.Add(this.Sair);
+            this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.leftPanel.Location = new System.Drawing.Point(0, 0);
+            this.leftPanel.Name = "leftPanel";
+            this.leftPanel.Size = new System.Drawing.Size(192, 549);
+            this.leftPanel.TabIndex = 10;
             // 
             // FormLayout
             // 
@@ -110,10 +110,10 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(976, 549);
             this.ControlBox = false;
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.rightPanel);
+            this.Controls.Add(this.buttonPanel);
+            this.Controls.Add(this.Panelx);
+            this.Controls.Add(this.leftPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -122,18 +122,18 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLayout";
             this.Load += new System.EventHandler(this.FormLayout_Load);
-            this.panel1.ResumeLayout(false);
+            this.leftPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
-        public System.Windows.Forms.Panel panel1;
-        public System.Windows.Forms.Panel panel6;
-        public System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel buttonPanel;
+        private System.Windows.Forms.Panel rightPanel;
+        public System.Windows.Forms.Panel logoPanel;
+        public System.Windows.Forms.Panel Panelx;
         private System.Windows.Forms.Button Sair;
+        public System.Windows.Forms.Panel leftPanel;
     }
 }

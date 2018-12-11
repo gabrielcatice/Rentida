@@ -45,13 +45,13 @@
             this.addClient = new System.Windows.Forms.Button();
             this.clientSearch = new System.Windows.Forms.Label();
             this.cliDetail = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Size = new System.Drawing.Size(774, 10);
+            this.Panelx.Size = new System.Drawing.Size(774, 10);
             // 
             // carFilter
             // 
@@ -218,8 +218,8 @@
             this.Name = "Cliente";
             this.Text = "RENTIDA";
             this.Load += new System.EventHandler(this.Cliente_Load);
-            this.Controls.SetChildIndex(this.panel1, 0);
-            this.Controls.SetChildIndex(this.panel2, 0);
+            this.Controls.SetChildIndex(this.leftPanel, 0);
+            this.Controls.SetChildIndex(this.Panelx, 0);
             this.Controls.SetChildIndex(this.clientSearch, 0);
             this.Controls.SetChildIndex(this.addClient, 0);
             this.Controls.SetChildIndex(this.clientUpdate, 0);
@@ -227,7 +227,7 @@
             this.Controls.SetChildIndex(this.dataGridView1, 0);
             this.Controls.SetChildIndex(this.carFilter, 0);
             this.Controls.SetChildIndex(this.cliDetail, 0);
-            this.panel1.ResumeLayout(false);
+            this.leftPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

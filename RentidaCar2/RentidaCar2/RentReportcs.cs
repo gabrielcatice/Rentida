@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RentidaCar2
 {
-    public partial class RentReportcs : Form
+    public partial class RentReportcs : FormLayout
     {
         public RentReportcs()
         {
@@ -19,9 +12,9 @@ namespace RentidaCar2
 
         private void backHome_Click(object sender, EventArgs e)
         {
-            Home home = new Home();
+            Home1 home = new Home1();
             home.Show();
-            Hide();
+            this.Hide();
         }
     }
 }
