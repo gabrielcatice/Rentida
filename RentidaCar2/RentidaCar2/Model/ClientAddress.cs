@@ -152,7 +152,7 @@ namespace RentidaCar2.Model
             }
         }
 
-        public enum AddressType
+        public enum AddressType: int
         {
             Street = 1,
             Avenue = 2,

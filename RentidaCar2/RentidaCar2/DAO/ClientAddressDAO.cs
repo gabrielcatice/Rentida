@@ -13,16 +13,9 @@ namespace RentidaCar2.DAO
     {
         public void Create(ClientAddress address)
         {
-            ClientAddress check = new ClientAddress();
-            check = Read(address.Id);
-            if (check != null)
-            {
-                InvalidOperationException error = new InvalidOperationException();
-                throw error;
-            }
             Database.Database rentida = Database.Database.GetInstance();
-            string query = string.Format("INSERT INTO rentida.client_address(address_type, address_name, address_number, neighbourhood, zip_code, city, state, country) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
-                 address.ClientAddressType, address.AdddressName, address.AddressNumber, address.Neighbourhood, address.ZipCode, address.City, address.State, address.Country);
+            string query = string.Format("INSERT INTO rentida.client_address(address_type, address_name, address_number, neighbourhood, zip_code, city, state, country) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}', '{7}')",
+                 (int) address.ClientAddressType, address.AdddressName, address.AddressNumber, address.Neighbourhood, address.ZipCode, address.City, address.State, address.Country);
 
             rentida.ExecuteNonQuery(query);
         }
@@ -30,7 +23,7 @@ namespace RentidaCar2.DAO
         public ClientAddress Read(string id)
         {
             Database.Database rentida = Database.Database.GetInstance();
-            string query = "SELECT * FROM rentida.client_address WHERE id=" + Convert.ToInt16(id);
+            string query = "SELECT * FROM rentida.client_address WHERE id=" + id;
             DataSet ds = rentida.ExecuteQuery(query);
             ClientAddress address = new ClientAddress();
 
@@ -84,7 +77,7 @@ namespace RentidaCar2.DAO
             try
             {
                 Database.Database rentida = Database.Database.GetInstance();
-                string query = string.Format("DELETE from rentida.client_address WHERE id =" + Convert.ToInt16(id));
+                string query = string.Format("DELETE from rentida.client_address WHERE id =" + id);
 
                 rentida.ExecuteNonQuery(query);
             }
