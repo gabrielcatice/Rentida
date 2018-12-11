@@ -30,9 +30,9 @@ namespace RentidaCar2
         private void alugarUmCarro_Click(object sender, EventArgs e)
         {
             RentCar alugar = new RentCar();
-            this.Hide();
+            Hide();
             alugar.ShowDialog();
-            this.Show();
+            Show();
             
         }
 
@@ -58,7 +58,7 @@ namespace RentidaCar2
         {
             RentReportcs relatorio = new RentReportcs();
             relatorio.Show();
-            this.Hide();
+            Hide();
         }
 
         private void Home1_Load(object sender, EventArgs e)

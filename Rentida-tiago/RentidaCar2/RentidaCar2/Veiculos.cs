@@ -40,7 +40,7 @@ namespace RentidaCar2
         {
                 Home home = new Home();
                 home.Show();
-                this.Hide();
+            Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -57,14 +57,14 @@ namespace RentidaCar2
         {
             CadastroVeiculo registerCar = new CadastroVeiculo();
             registerCar.Show();
-            this.Hide();
+            Hide();
         }
 
         private void carUpdate_Click(object sender, EventArgs e)
         {
             CadastroVeiculo registerCar = new CadastroVeiculo();
             registerCar.Show();
-            this.Hide();
+            Hide();
         }
 
         private void carFilter_AfterSelect(object sender, TreeViewEventArgs e)

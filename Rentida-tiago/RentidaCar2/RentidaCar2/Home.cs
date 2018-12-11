@@ -26,21 +26,21 @@ namespace RentidaCar2
         {
             RentCar alugar = new RentCar();
             alugar.Show();
-            this.Hide();
+            Hide();
         }
 
         private void gestãoDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Cliente Cliente = new Cliente();
             Cliente.Show();
-            this.Hide();
+            Hide();
         }
 
         private void gestãoDeVeículosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Veiculos Veiculo = new Veiculos();
             Veiculo.Show();
-            this.Hide();
+            Hide();
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace RentidaCar2
         {
             RentReportcs relatorio = new RentReportcs();
             relatorio.Show();
-            this.Hide();
+            Hide();
         }
     }
 }
