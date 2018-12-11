@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace RentidaCar2
 {
-    public partial class Home2 : Home1
+    public partial class STATUS : Form
     {
-        public Home2()
+        public STATUS()
         {
             InitializeComponent();
         }
 
-        private void Home2_Load(object sender, EventArgs e)
+        private void btnOk_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
