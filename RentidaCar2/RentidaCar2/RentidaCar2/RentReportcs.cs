@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace RentidaCar2
 {
-    public partial class RentReportcs : Form
+    public partial class RentReportcs : FormLayout
     {
         public RentReportcs()
         {
@@ -12,7 +12,7 @@ namespace RentidaCar2
 
         private void backHome_Click(object sender, EventArgs e)
         {
-            Home home = new Home();
+            Home1 home = new Home1();
             home.Show();
             this.Hide();
         }

@@ -50,8 +50,7 @@ namespace RentidaCar2
         private void Alugados_Click(object sender, EventArgs e)
         {
             RentReportcs relatorio = new RentReportcs();
-            relatorio.Show();
-            this.Hide();
+            relatorio.Show();           
         }
 
         private void Home1_Load(object sender, EventArgs e)

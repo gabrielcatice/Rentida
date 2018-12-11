@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Veiculos1));
             this.carDetail = new System.Windows.Forms.Button();
             this.carFilter = new System.Windows.Forms.TreeView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -44,17 +45,18 @@
             this.addCar = new System.Windows.Forms.Button();
             this.carSearch = new System.Windows.Forms.Label();
             this.carRegister = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
-            // 
-            this.leftPanel.Size = new System.Drawing.Size(192, 545);
-            // 
-            // panel2
+            // Panelx
             // 
             this.Panelx.Size = new System.Drawing.Size(777, 10);
+            // 
+            // leftPanel
+            // 
+            this.leftPanel.Size = new System.Drawing.Size(192, 545);
             // 
             // carDetail
             // 
@@ -75,7 +77,7 @@
             this.carFilter.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.carFilter.Location = new System.Drawing.Point(342, 75);
             this.carFilter.Name = "carFilter";
-            this.carFilter.Size = new System.Drawing.Size(493, 27);
+            this.carFilter.Size = new System.Drawing.Size(619, 27);
             this.carFilter.TabIndex = 18;
             // 
             // dataGridView1
@@ -204,11 +206,22 @@
             this.carRegister.Text = "Veículos";
             this.carRegister.Click += new System.EventHandler(this.carRegister_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Cursor = System.Windows.Forms.Cursors.No;
+            this.panel1.Location = new System.Drawing.Point(848, 16);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(113, 55);
+            this.panel1.TabIndex = 22;
+            // 
             // Veiculos1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 555);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.carRegister);
             this.Controls.Add(this.carDetail);
             this.Controls.Add(this.addCar);
@@ -230,6 +243,7 @@
             this.Controls.SetChildIndex(this.addCar, 0);
             this.Controls.SetChildIndex(this.carDetail, 0);
             this.Controls.SetChildIndex(this.carRegister, 0);
+            this.Controls.SetChildIndex(this.panel1, 0);
             this.leftPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -255,5 +269,6 @@
         private System.Windows.Forms.Button addCar;
         private System.Windows.Forms.Label carSearch;
         private System.Windows.Forms.Label carRegister;
+        private System.Windows.Forms.Panel panel1;
     }
 }

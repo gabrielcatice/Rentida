@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLayout));
             this.buttonPanel = new System.Windows.Forms.Panel();
+            this.leftPanel = new System.Windows.Forms.Panel();
             this.logoPanel = new System.Windows.Forms.Panel();
             this.Sair = new System.Windows.Forms.Button();
             this.rightPanel = new System.Windows.Forms.Panel();
             this.Panelx = new System.Windows.Forms.Panel();
-            this.leftPanel = new System.Windows.Forms.Panel();
             this.leftPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +47,17 @@
             this.buttonPanel.Name = "buttonPanel";
             this.buttonPanel.Size = new System.Drawing.Size(784, 10);
             this.buttonPanel.TabIndex = 7;
+            // 
+            // leftPanel
+            // 
+            this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(114)))), ((int)(((byte)(155)))));
+            this.leftPanel.Controls.Add(this.logoPanel);
+            this.leftPanel.Controls.Add(this.Sair);
+            this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.leftPanel.Location = new System.Drawing.Point(0, 0);
+            this.leftPanel.Name = "leftPanel";
+            this.leftPanel.Size = new System.Drawing.Size(192, 549);
+            this.leftPanel.TabIndex = 10;
             // 
             // logoPanel
             // 
@@ -92,17 +103,6 @@
             this.Panelx.Size = new System.Drawing.Size(784, 10);
             this.Panelx.TabIndex = 9;
             // 
-            // leftPanel
-            // 
-            this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(114)))), ((int)(((byte)(155)))));
-            this.leftPanel.Controls.Add(this.logoPanel);
-            this.leftPanel.Controls.Add(this.Sair);
-            this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.leftPanel.Location = new System.Drawing.Point(0, 0);
-            this.leftPanel.Name = "leftPanel";
-            this.leftPanel.Size = new System.Drawing.Size(192, 549);
-            this.leftPanel.TabIndex = 10;
-            // 
             // FormLayout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,9 +131,9 @@
 
         private System.Windows.Forms.Panel buttonPanel;
         private System.Windows.Forms.Panel rightPanel;
+        public System.Windows.Forms.Panel leftPanel;
         public System.Windows.Forms.Panel logoPanel;
         public System.Windows.Forms.Panel Panelx;
         private System.Windows.Forms.Button Sair;
-        public System.Windows.Forms.Panel leftPanel;
     }
 }
