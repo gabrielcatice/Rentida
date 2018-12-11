@@ -37,7 +37,7 @@ namespace RentidaCar2
         {
             Veiculos carro = new Veiculos();
             carro.Show();
-            this.Hide();
+            Hide();
         }
 
         private void addCar_Click(object sender, EventArgs e)

@@ -19,7 +19,7 @@ namespace RentidaCar2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void label6_Click(object sender, EventArgs e)

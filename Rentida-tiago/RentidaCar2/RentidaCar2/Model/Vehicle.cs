@@ -29,6 +29,10 @@ namespace RentidaCar2.Model
             this.lastRentDate = lastRentDate;
         }
 
+        public Vehicle()
+        {
+        }
+
         public string Id
         {
             get
@@ -133,7 +137,7 @@ namespace RentidaCar2.Model
             }
         }
 
-        public enum Brand
+        public enum Brand: int
         {
             Chevrolet = 1,
             Volkswagen = 2,
@@ -141,7 +145,7 @@ namespace RentidaCar2.Model
             Fiat = 4
         }
 
-        public enum Type
+        public enum Type: int
         {
             Simple = 1,
             Complete = 2,

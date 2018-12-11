@@ -27,6 +27,10 @@ namespace RentidaCar2.Model
             this.carType = carType;
         }
 
+        public RentPlan()
+        {
+        }
+
         public string Id
         {
             get

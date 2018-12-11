@@ -9,12 +9,12 @@ namespace RentidaCar2.Model
     public class RentCar
     {
         private string id;
-        private Client renter;
-        private RentPlan rentPlan;
-        private Vehicle renterVehicle;
+        private Client renter = new Client();
+        private RentPlan rentPlan = new RentPlan();
+        private Vehicle renterVehicle = new Vehicle();
         private DateTime rentDate;
         private DateTime devolutionDate;
-        private Payment paymentMethod;
+        private Payment paymentMethod = new Payment();
         private double initialValue;
         private double totalValue;
         private RentStatus status;
@@ -35,6 +35,10 @@ namespace RentidaCar2.Model
             this.isPaid = isPaid;
         }
 
+        public RentCar()
+        {
+        }
+
         public string Id
         {
             get
@@ -48,7 +52,7 @@ namespace RentidaCar2.Model
             }
         }
 
-        internal Client Renter
+        public Client Renter
         {
             get
             {
@@ -61,7 +65,7 @@ namespace RentidaCar2.Model
             }
         }
 
-        internal RentPlan RentPlan
+        public RentPlan RentPlan
         {
             get
             {
@@ -74,7 +78,7 @@ namespace RentidaCar2.Model
             }
         }
 
-        internal Vehicle RenterVehicle
+        public Vehicle RenterVehicle
         {
             get
             {
@@ -113,7 +117,7 @@ namespace RentidaCar2.Model
             }
         }
 
-        internal Payment PaymentMethod
+        public Payment PaymentMethod
         {
             get
             {
@@ -152,7 +156,7 @@ namespace RentidaCar2.Model
             }
         }
 
-        internal RentStatus Status
+        public RentStatus Status
         {
             get
             {
@@ -178,7 +182,7 @@ namespace RentidaCar2.Model
             }
         }
 
-        public enum RentStatus
+        public enum RentStatus: int
         {
             Open = 1,
             Running = 2,
